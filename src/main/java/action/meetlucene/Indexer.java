@@ -38,8 +38,8 @@ public class Indexer {
 
   public static void main(String[] args) throws Exception {
 
-    String indexDir = "index/";         //1
-    String dataDir = Indexer.class.getResource("/")+"data/education/pedagogy/";          //2
+    String indexDir = "index";         //1
+    String dataDir = Indexer.class.getResource("/").getPath()+"meetlucene/data";          //2
 
     long start = System.currentTimeMillis();
     Indexer indexer = new Indexer(indexDir);
@@ -85,8 +85,7 @@ public class Indexer {
 
   private static class TextFilesFilter implements FileFilter {
     public boolean accept(File path) {
-      return path.getName().toLowerCase()        //6
-             .endsWith(".txt");                  //6
+      return path.getName().toLowerCase().endsWith(".txt");                  //6
     }
   }
 
